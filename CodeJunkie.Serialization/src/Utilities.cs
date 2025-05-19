@@ -13,12 +13,7 @@ public static class SerializationUtilities {
   /// <returns>True if the objects are equivalent; otherwise, false.</returns>
   [MethodImpl(MethodImplOptions.AggressiveInlining)]
   public static bool IsEquivalent(object? a, object? b) =>
-    ReferenceEquals(a, b) || (
-      a is null &&
-      b is null
-    ) || (
-      a is not null &&
-      b is not null &&
-      EqualityComparer<object>.Default.Equals(a, b)
-    );
+    ReferenceEquals(a, b) ||
+    (a is null && b is null) ||
+    (a is not null && b is not null && EqualityComparer<object>.Default.Equals(a, b));
 }
